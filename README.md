@@ -36,26 +36,26 @@ South DB migrations:
     $ python manage.py migrate myapp
     $ python manage.py schemamigration myapp --auto
  
-South: Editing a model is a 3 step process
+South - editing models:
    
     1.) save the model changes
     2.) run schemamigration --auto
     3.) run migrate to actually commit the changes to the database
     
 South Options:
-        --all: Used instead of an app name, allows you to migrate all applications to the same target. For example, ./manage.py migrate --all --fake 0001 if you are converting a lot of apps.
-        --list: Shows what migrations are available, and puts a * next to ones which have been applied.
-        --merge: Runs any missed (out-of-order) migrations without rolling back to them.
-        --no-initial-data: Doesn’t load in any initial data fixtures after a full upwards migration, if there are any.
-        --fake: Records the migration sequence as having been applied, but doesn’t actually run it. Useful for Converting An App.
-        --db-dry-run: Loads and runs the migration, but doesn’t actually access the database (the SQL generated is thrown away at the last minute). The migration is also not recorded as being run; this is useful for sanity-testing migrations to check API calls are correct.
+        $ --all: Used instead of an app name, allows you to migrate all applications to the same target. For example, ./manage.py migrate --all --fake 0001 if you are converting a lot of apps.
+        $ --list: Shows what migrations are available, and puts a * next to ones which have been applied.
+        $ --merge: Runs any missed (out-of-order) migrations without rolling back to them.
+        $ --no-initial-data: Doesn’t load in any initial data fixtures after a full upwards migration, if there are any.
+        $ --fake: Records the migration sequence as having been applied, but doesn’t actually run it. Useful for Converting An App.
+        $ --db-dry-run: Loads and runs the migration, but doesn’t actually access the database (the SQL generated is thrown away at the last minute). The migration is also not recorded as being run; this is useful for sanity-testing migrations to check API calls are correct.
 
-Development Area (move files to seperate area for dev):
+Git clone to dev folder:
 
     $ git clone /path/to/my/project/  (Git will create an exact copy of the entire repository. All changes, branches, and history will be available here. From here on out, you should be working from your development directory.)
     $ git checkout -b <branchname>  (will both create a new branch named and check it out. Almost all of your development should be done on a branch, so that master mimics the current production master and can be used for recovery at any time.)
 
-Fabric for Deployment
+Fabric for Deployment:
     
     $ pip install fabric
     
