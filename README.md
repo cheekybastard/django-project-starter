@@ -62,8 +62,9 @@ Fabric for Deployment:
     $ pip install fabric
     
 fabfile.py
-from fabric.api import local
 
+    from fabric.api import local
+    
     def prepare_deployment(branch_name):
         local('python manage.py test myapp')
         local('git add -p && git commit')
