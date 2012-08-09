@@ -43,12 +43,14 @@ South - editing models:
     3.) run migrate to actually commit the changes to the database
     
 South Options:
-        $ --all: Used instead of an app name, allows you to migrate all applications to the same target. For example, ./manage.py migrate --all --fake 0001 if you are converting a lot of apps.
-        $ --list: Shows what migrations are available, and puts a * next to ones which have been applied.
-        $ --merge: Runs any missed (out-of-order) migrations without rolling back to them.
-        $ --no-initial-data: Doesn’t load in any initial data fixtures after a full upwards migration, if there are any.
-        $ --fake: Records the migration sequence as having been applied, but doesn’t actually run it. Useful for Converting An App.
-        $ --db-dry-run: Loads and runs the migration, but doesn’t actually access the database (the SQL generated is thrown away at the last minute). The migration is also not recorded as being run; this is useful for sanity-testing migrations to check API calls are correct.
+
+    $ --all: Used instead of an app name, allows you to migrate all applications to the same target. For example, ./manage.py migrate --all --fake 0001 if you are converting a lot of apps.
+    $ --list: Shows what migrations are available, and puts a * next to ones which have been applied.
+    $ --merge: Runs any missed (out-of-order) migrations without rolling back to them.
+    $ --no-initial-data: Doesn’t load in any initial data fixtures after a full upwards migration, if there are any.
+    $ --fake: Records the migration sequence as having been applied, but doesn’t actually run it. Useful for Converting An App.
+    $ --db-dry-run: Loads and runs the migration, but doesn’t actually access the database (the SQL generated is thrown away at the last minute). The migration is also not recorded as being run; this is useful for sanity-testing migrations to check API calls are correct.
+
 
 Git clone to dev folder:
 
@@ -62,8 +64,8 @@ Fabric for Deployment:
 fabfile.py
 from fabric.api import local
 
-def prepare_deployment(branch_name):
-    local('python manage.py test myapp')
-    local('git add -p && git commit')
-    local('git checkout master && git merge ' + branchname)
+    def prepare_deployment(branch_name):
+        local('python manage.py test myapp')
+        local('git add -p && git commit')
+        local('git checkout master && git merge ' + branchname)
     
